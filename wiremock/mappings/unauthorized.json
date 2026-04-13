@@ -1,0 +1,47 @@
+{
+  "mappings": [
+    {
+      "name": "Unauthorized Access - Invalid Bearer Token",
+      "request": {
+        "urlPattern": "/api/(?!security/authentication).*",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .*"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "error": {
+            "message": "Invalid or expired authentication token.",
+            "code": "INVALID_TOKEN"
+          }
+        }
+      },
+      "priority": 8
+    },
+    {
+      "name": "Unauthorized Access - Missing Token",
+      "request": {
+        "urlPattern": "/api/(?!security/authentication).*"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "error": {
+            "message": "Authentication required. Please provide a valid Bearer token.",
+            "code": "MISSING_TOKEN"
+          }
+        }
+      },
+      "priority": 10
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp iSCSI LUNs",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/san/iscsi/luns",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "lun-uuid-001",
+              "name": "/vol1/lun1",
+              "svm": {
+                "name": "svm1"
+              },
+              "volume": {
+                "name": "vol_data_01"
+              },
+              "size": 214748364800,
+              "enabled": true,
+              "mapped": true,
+              "os_type": "windows",
+              "space_reserved": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp iSCSI Initiators",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/san/iscsi/initiators",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "name": "iqn.1991-05.com.microsoft:client1",
+              "igroup": {
+                "name": "windows_servers"
+              },
+              "svm": {
+                "name": "svm1"
+              },
+              "alias": "WinClient01",
+              "os_type": "windows"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp iSCSI Targets",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/san/iscsi/targets",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "name": "iqn.1992-08.com.netapp:sn.123456789.lun1",
+              "address": {
+                "ip": "10.10.10.100",
+                "port": 3260
+              },
+              "svm": {
+                "name": "svm1"
+              },
+              "enabled": true,
+              "lif": {
+                "name": "lif_iscsi_1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

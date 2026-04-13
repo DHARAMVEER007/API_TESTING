@@ -1,0 +1,110 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Storage Volumes",
+      "request": {
+        "method": "GET",
+        "url": "/api/storage/volumes",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "vol-uuid-001",
+              "name": "vol_data_01",
+              "svm": {
+                "name": "svm1"
+              },
+              "aggregate": {
+                "name": "aggr1_node1"
+              },
+              "type": "rw",
+              "style": "flexvol",
+              "state": "online",
+              "junction_path": "/vol_data_01",
+              "size": 536870912000,
+              "space_guarantee": "volume",
+              "snapshot_policy": {
+                "name": "default"
+              }
+            },
+            {
+              "uuid": "vol-uuid-002",
+              "name": "vol_logs_01",
+              "svm": {
+                "name": "svm2"
+              },
+              "aggregate": {
+                "name": "aggr2_node2"
+              },
+              "type": "rw",
+              "style": "flexvol",
+              "state": "online",
+              "junction_path": "/vol_logs_01",
+              "size": 214748364800,
+              "space_guarantee": "none",
+              "snapshot_policy": {
+                "name": "none"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp Volume Storage Efficiency",
+      "request": {
+        "method": "GET",
+        "url": "/api/storage/volumes/efficiency",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "volume_name": "vol_data_01",
+              "volume_uuid": "vol-uuid-001",
+              "compression_saved": 107374182400,
+              "deduplication_saved": 214748364800,
+              "total_space": 536870912000,
+              "compression_ratio": 0.8,
+              "deduplication_ratio": 0.6,
+              "efficiency_status": "enabled",
+              "last_scan_time": "2024-01-15T10:30:00Z",
+              "scan_progress": 100
+            },
+            {
+              "volume_name": "vol_logs_01",
+              "volume_uuid": "vol-uuid-002",
+              "compression_saved": 53687091200,
+              "deduplication_saved": 107374182400,
+              "total_space": 214748364800,
+              "compression_ratio": 0.75,
+              "deduplication_ratio": 0.5,
+              "efficiency_status": "enabled",
+              "last_scan_time": "2024-01-15T11:45:00Z",
+              "scan_progress": 100
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

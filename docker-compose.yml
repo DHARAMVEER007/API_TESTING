@@ -1,0 +1,32 @@
+services:
+  # Spring Boot NetApp API
+  netapp-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netapp-api
+    ports:
+      - "1715:1715"
+    environment:
+      - SERVER_PORT=1715
+      - SERVER_ADDRESS=0.0.0.0
+    networks:
+      - netapp-network
+    restart: unless-stopped
+
+  # WireMock Mock Server
+  wiremock:
+    build:
+      context: ./wiremock
+      dockerfile: Dockerfile
+    container_name: netapp-wiremock
+    ports:
+      - "443:443"
+    networks:
+      - netapp-network
+    restart: unless-stopped
+
+networks:
+  netapp-network:
+    driver: bridge
+

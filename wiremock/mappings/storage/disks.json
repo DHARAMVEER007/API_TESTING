@@ -1,0 +1,81 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Storage Disks",
+      "request": {
+        "method": "GET",
+        "url": "/api/storage/disks",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "disk-uuid-001",
+              "name": "0a.00.0",
+              "serial_number": "X477_12345678",
+              "type": "SSD",
+              "model": "X477_S1648A9",
+              "vendor": "NetApp",
+              "size": 1649267441664,
+              "rpm": 10000,
+              "state": "present",
+              "location": {
+                "shelf": 1,
+                "bay": 0
+              },
+              "node": {
+                "name": "node-01"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp Disk Metrics",
+      "request": {
+        "method": "GET",
+        "urlPattern": "/api/storage/disks/([^/]+)/metrics",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "metrics": {
+            "utilization_percent": 74.3,
+            "iops": {
+              "read": 120,
+              "write": 95
+            },
+            "latency": {
+              "read": 0.7,
+              "write": 1.0
+            },
+            "temperature_celsius": 38,
+            "errors": {
+              "media": 0,
+              "other": 1
+            },
+            "timestamp": "2025-07-16T14:00:00Z"
+          }
+        }
+      }
+    }
+  ]
+}

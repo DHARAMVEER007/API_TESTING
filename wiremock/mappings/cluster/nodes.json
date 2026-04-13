@@ -1,0 +1,47 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Cluster Nodes",
+      "request": {
+        "method": "GET",
+        "url": "/api/cluster/nodes",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "a1b2c3d4-5678-90ab-cdef-1234567890ab",
+              "name": "node-01",
+              "state": "healthy",
+              "model": "FAS2750",
+              "serial_number": "123456789",
+              "ha": {
+                "partner": "node-02",
+                "state": "connected"
+              },
+              "version": {
+                "full": "NetApp Release 9.12.1P5"
+              }
+            },
+            {
+              "uuid": "b2c3d4e5-6789-01ab-cdef-2345678901bc",
+              "name": "node-02",
+              "state": "healthy",
+              "model": "FAS2750",
+              "serial_number": "987654321"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

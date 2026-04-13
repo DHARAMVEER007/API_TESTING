@@ -1,0 +1,47 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Storage Controllers",
+      "request": {
+        "method": "GET",
+        "url": "/api/storage/controllers",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "ctrl-uuid-001",
+              "name": "node-01",
+              "model": "FAS2750",
+              "vendor": "NetApp",
+              "serial_number": "SN1234567890",
+              "os_version": "NetApp Release 9.12.1P5",
+              "location": "Rack 3, DC1",
+              "ha": {
+                "partner": "node-02",
+                "state": "connected"
+              },
+              "cpu": {
+                "cores": 12,
+                "model": "Intel Xeon E5-2630"
+              },
+              "memory": {
+                "size": "128GB"
+              },
+              "state": "online"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

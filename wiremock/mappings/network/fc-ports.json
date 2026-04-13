@@ -1,0 +1,81 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp FC Ports",
+      "request": {
+        "method": "GET",
+        "url": "/api/network/fc/ports",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "port-uuid-001",
+              "name": "0a",
+              "wwpn": "50:0a:09:84:00:1a:01:02",
+              "node": {
+                "name": "node-01",
+                "uuid": "node-uuid-001"
+              },
+              "port_type": "target",
+              "state": "online",
+              "speed": "16Gb",
+              "enabled": true,
+              "fabric": {
+                "name": "fabric-A"
+              }
+            },
+            {
+              "uuid": "port-uuid-002",
+              "name": "0b",
+              "wwpn": "50:0a:09:84:00:1a:01:03",
+              "state": "offline",
+              "speed": "8Gb"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp FC Port Metrics",
+      "request": {
+        "method": "GET",
+        "urlPattern": "/api/network/fc/ports/([^/]+)/metrics",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "metrics": {
+            "throughput": {
+              "received": 300000000,
+              "sent": 280000000
+            },
+            "errors": {
+              "rx": 0,
+              "tx": 2
+            },
+            "utilization_percent": 65.0,
+            "timestamp": "2025-07-16T13:00:00Z"
+          }
+        }
+      }
+    }
+  ]
+}

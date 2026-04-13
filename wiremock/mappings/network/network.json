@@ -1,0 +1,93 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Ethernet Interfaces",
+      "request": {
+        "method": "GET",
+        "url": "/api/network/ethernet/interfaces",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "name": "e0a",
+              "node": {
+                "name": "node-01",
+                "uuid": "abcd-1234-efgh-5678"
+              },
+              "mac": "00:a0:98:12:34:56",
+              "speed": "10Gb",
+              "status": "up",
+              "type": "physical",
+              "enabled": true
+            },
+            {
+              "name": "e0b",
+              "node": {
+                "name": "node-02"
+              },
+              "mac": "00:a0:98:12:34:57",
+              "speed": "1Gb",
+              "status": "down",
+              "type": "physical",
+              "enabled": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp IP Interfaces",
+      "request": {
+        "method": "GET",
+        "url": "/api/network/ip/interfaces",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "ip": {
+                "address": "192.168.1.100",
+                "netmask": "255.255.255.0"
+              },
+              "location": {
+                "port": {
+                  "name": "e0a"
+                }
+              }
+            },
+            {
+              "ip": {
+                "address": "192.168.1.101",
+                "netmask": "255.255.255.0"
+              },
+              "location": {
+                "port": {
+                  "name": "e0b"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

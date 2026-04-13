@@ -1,0 +1,53 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Storage Virtual Machines (SVMs)",
+      "request": {
+        "method": "GET",
+        "url": "/api/svm/svms",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "svm-uuid-001",
+              "name": "svm1",
+              "state": "running",
+              "subtype": "default",
+              "language": "c.utf_8",
+              "max_volumes": 1000,
+              "allowed_protocols": ["nfs", "cifs", "iscsi", "fc"]
+            },
+            {
+              "uuid": "svm-uuid-002",
+              "name": "svm2",
+              "state": "running",
+              "subtype": "default",
+              "language": "c.utf_8",
+              "max_volumes": 500,
+              "allowed_protocols": ["nfs", "cifs"]
+            },
+            {
+              "uuid": "svm-uuid-003",
+              "name": "svm_backup",
+              "state": "stopped",
+              "subtype": "dp_destination",
+              "language": "c.utf_8",
+              "max_volumes": 200,
+              "allowed_protocols": ["nfs"]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

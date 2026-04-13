@@ -1,0 +1,110 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Cluster Information",
+      "request": {
+        "method": "GET",
+        "url": "/api/cluster",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "name": "cluster-01",
+          "uuid": "3a1f9f10-1234-11eb-9a70-005056bb6e4b",
+          "contact": "admin@example.com",
+          "location": "Data Center A",
+          "nodes": [
+            {
+              "name": "node1",
+              "uuid": "d4e3a710-1234-11eb-9a70-005056bb6e4b"
+            },
+            {
+              "name": "node2",
+              "uuid": "d4e3a711-1234-11eb-9a70-005056bb6e4b"
+            }
+          ],
+          "management_interfaces": [
+            {
+              "ip": "10.0.0.100",
+              "port": 443
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp Cluster Version",
+      "request": {
+        "method": "GET",
+        "url": "/api/cluster/version",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "version": {
+            "full": "NetApp Release 9.12.1P5",
+            "generation": "9",
+            "major": "12",
+            "minor": "1",
+            "build": "P5"
+          },
+          "build_date": "2024-01-15T12:34:56Z"
+        }
+      }
+    },
+    {
+      "name": "NetApp Cluster Licenses",
+      "request": {
+        "method": "GET",
+        "url": "/api/cluster/licensing/licenses",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "licenses": [
+            {
+              "package": "Base",
+              "serial_number": "1-80-000011",
+              "installed": true,
+              "scope": "cluster",
+              "expiration_date": null,
+              "features": ["NFS", "CIFS", "iSCSI"],
+              "firmware_version": "9.12.1P5"
+            },
+            {
+              "package": "SnapMirror",
+              "serial_number": "1-80-000012",
+              "installed": true,
+              "scope": "cluster",
+              "expiration_date": "2026-01-01"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

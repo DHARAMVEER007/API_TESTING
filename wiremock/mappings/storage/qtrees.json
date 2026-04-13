@@ -1,0 +1,80 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Storage Qtrees",
+      "request": {
+        "method": "GET",
+        "url": "/api/storage/qtrees",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "qtree-uuid-001",
+              "name": "qtree_docs",
+              "volume": {
+                "name": "vol_data_01",
+                "uuid": "vol-uuid-001"
+              },
+              "path": "/vol_data_01/qtree_docs",
+              "svm": {
+                "name": "svm1"
+              },
+              "security_style": "unix",
+              "export_policy": {
+                "name": "default"
+              },
+              "oplocks": "enabled",
+              "status": "online"
+            },
+            {
+              "uuid": "qtree-uuid-002",
+              "name": "qtree_logs",
+              "volume": {
+                "name": "vol_logs_01",
+                "uuid": "vol-uuid-002"
+              },
+              "path": "/vol_logs_01/qtree_logs",
+              "svm": {
+                "name": "svm1"
+              },
+              "security_style": "ntfs",
+              "export_policy": {
+                "name": "logs_policy"
+              },
+              "oplocks": "disabled",
+              "status": "online"
+            },
+            {
+              "uuid": "qtree-uuid-003",
+              "name": "qtree_backup",
+              "volume": {
+                "name": "vol_backup_01",
+                "uuid": "vol-uuid-003"
+              },
+              "path": "/vol_backup_01/qtree_backup",
+              "svm": {
+                "name": "svm2"
+              },
+              "security_style": "mixed",
+              "export_policy": {
+                "name": "backup_policy"
+              },
+              "oplocks": "enabled",
+              "status": "online"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

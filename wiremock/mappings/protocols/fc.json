@@ -1,0 +1,109 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp FC LUNs",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/san/fc/luns",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "lun-uuid-002",
+              "name": "/vol2/lun2",
+              "svm": {
+                "name": "svm2"
+              },
+              "volume": {
+                "name": "vol2"
+              },
+              "size": 429496729600,
+              "enabled": true,
+              "mapped": true,
+              "os_type": "linux",
+              "space_reserved": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp FC Initiators",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/san/fc/initiators",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "name": "20:00:00:25:b5:00:00:01",
+              "igroup": {
+                "name": "linux_servers"
+              },
+              "svm": {
+                "name": "svm2"
+              },
+              "alias": "LinuxHost01",
+              "os_type": "linux"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "NetApp FC Targets",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/san/fc/targets",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "name": "50:0a:09:84:00:1a:01:02",
+              "svm": {
+                "name": "svm2"
+              },
+              "lif": {
+                "name": "fc_lif_1"
+              },
+              "enabled": true,
+              "node": {
+                "name": "node-02"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

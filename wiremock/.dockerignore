@@ -1,0 +1,21 @@
+# Documentation
+docs/
+*.md
+
+# Scripts
+*.sh
+*.bat
+*.ps1
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+

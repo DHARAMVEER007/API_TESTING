@@ -1,0 +1,42 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp CIFS Shares",
+      "request": {
+        "method": "GET",
+        "url": "/api/protocols/cifs/shares",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "name": "share_docs",
+              "path": "/vol1/docs",
+              "junction_path": "/docs",
+              "volume": {
+                "name": "vol_data_01",
+                "uuid": "vol-uuid-001"
+              },
+              "svm": {
+                "name": "svm1"
+              },
+              "comment": "Shared documents",
+              "offline_files_mode": "manual",
+              "symlink": false,
+              "access_based_enumeration": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

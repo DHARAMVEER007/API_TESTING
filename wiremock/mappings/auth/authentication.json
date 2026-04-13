@@ -1,0 +1,46 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Authentication - Success",
+      "request": {
+        "method": "POST",
+        "url": "/api/security/authentication/cluster-tokens",
+        "bodyPatterns": [
+          {
+            "equalToJson": {
+              "username": "NetApp_Administrator",
+              "password": "Netapp@123"
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+        }
+      },
+      "priority": 1
+    },
+    {
+      "name": "NetApp Authentication - Invalid Credentials", 
+      "request": {
+        "method": "POST",
+        "url": "/api/security/authentication/cluster-tokens"
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "error": "Invalid credentials"
+        }
+      },
+      "priority": 2
+    }
+  ]
+}

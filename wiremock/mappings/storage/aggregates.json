@@ -1,0 +1,52 @@
+{
+  "mappings": [
+    {
+      "name": "NetApp Storage Aggregates",
+      "request": {
+        "method": "GET",
+        "url": "/api/storage/aggregates",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4ODI0ODA4OCwiZXhwIjoxNTg4MjUxNjg4fQ.token123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "records": [
+            {
+              "uuid": "agg-uuid-001",
+              "name": "aggr1_node1",
+              "node": {
+                "name": "node-01",
+                "uuid": "node-uuid-001"
+              },
+              "block_storage": {
+                "primary": {
+                  "size": 1099511627776,
+                  "used": 439804651110
+                }
+              },
+              "type": "hybrid",
+              "state": "online",
+              "comment": "Root aggregate for node-01"
+            },
+            {
+              "uuid": "agg-uuid-002",
+              "name": "aggr2_node2",
+              "node": {
+                "name": "node-02"
+              },
+              "type": "ssd",
+              "state": "online"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
